@@ -1,0 +1,139 @@
+patient:
+	description: A collection of health and related data for a person, usually related to reporting, research, or a disease registry.
+	properties: 
+		demographics:
+			description: A container used to hold demographic-related EHR CLUSTER archetypes
+			properties:
+				person:
+					description: An individual human being
+					properties:
+						subject_id:
+							description: The subject identifier for a given patient.
+							type: string
+							path: /content[openEHR-EHR-ADMIN_ENTRY.demographics.v0, 'Demographics container']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1, 'Person']/items[at0001, 'subject_id']
+						gender:
+							description: The gender of the individual
+							type: string
+							path: /content[openEHR-EHR-ADMIN_ENTRY.demographics.v0, 'Demographics container']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1, 'Person']/items[at0011, 'gender']
+						structured-name:
+							description: Alternative representation of an individual's complete name by separation into discrete, structured components.
+							properties:
+								title:
+									description: One or more honorific form(s) of address commencing a name.
+									type: string
+									path: /content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.structured_name.v1]/items[at0001]
+								given-name:
+									description: One or more unique name(s) used to identify an individual within a family group.
+									comment: Allow for more than one Given name to be recorded. For example 'First name', 'Middle name', 'Preferred name' or 'Nickname', as required for a specific use case.
+									type: string
+									path: /content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.structured_name.v1]/items[at0002]
+								family-name: 
+									description: One or more name(s) that an individual has in common with a family group.
+									comment: Also known as 'Last name' or 'Surname'. 
+									type: string
+								suffix:
+									description: One or more term(s) placed after all other name components, usually to differentiate an individual from a family member with identical Given and Family name components.
+									comment: Allow for more than one Suffix to be recorded. Coding with an external terminology is preferred, where possible. For example- 'Junior (Jr)'; 'Senior (Sr)'; 'Second (II)'.
+									type: string
+						address:
+							description: Details about the location of a person, physical building or landmark.
+							properties:
+								address-line:
+									description: An unstructured address line representing all relevant street-level or post-box details that would support the identification of a location.
+									path: /content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.address.v1]/items[at0001]
+									type: string
+								city/town:
+									description: The name of the lowest level locality that contains the address.
+									path: /content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.address.v1]/items[at0002]
+									type: string
+								district/county:
+									description: The name of a local government district or geographical area that contains the address.
+									path: /content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.address.v1]/items[at0003]
+									type: string
+								state/territory/province:
+									description: The name of a major government district or geographical area that contains the address.
+									path: /content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.address.v1]/items[at0004]
+									type: string
+								postal-code:
+									description: The code for a postal delivery area containing the address, as defined by the relevant postal delivery service.
+									path: /content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.address.v1]/items[at0005]
+									type: string
+								country:
+									description: The name of the country containing the address.
+									path: /content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.address.v1]/items[at0006]
+									type: string
+								geolocation-code:
+									description: Unique identifier that represents a precise geographical location.
+									path: /content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.address.v1]/items[at0021]
+									type: string
+								latitude:
+									description: Horizontal (y) coordinate of a geolocation for the address.
+									path: /content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.address.v1]/items[at0007]
+									type: float
+								longitude:
+									description: Horizontal (x) coordinate of a geolocation for the address.
+									path: /content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.address.v1]/items[at0008]
+									type: float
+								altitude:
+									description: The vertical coordinate of a geolocation representing height or depth of the address.
+									path: /content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.address.v1]/items[at0009]
+									type: float
+								map-url:
+									description: 
+									path:
+									type:
+								type:
+									description:
+									path:
+									type:
+								use:
+									description:
+									path:
+									type:
+						electronic-communication:
+							description:
+							properties:
+								type:
+									description:
+									path:
+									type:
+								value:
+									description:
+									path:
+									type:
+								purpose:
+									description:
+									path:
+									type:
+								comment:
+									description:
+									path:
+									type:
+						additional-details:
+							description:
+							properties:
+								date-of-birth-alternative:
+									possible-date/time-of-birth:
+										description:
+										path:
+										type:
+									source:
+										description:
+										path:
+										type:
+								date-of-death-alternative:
+									possible-date/time-of-death:
+										description:
+										path:
+										type:
+									source:
+										description:
+										path:
+										type:
+									certainity:
+										description:
+										path:
+										type:
+						expire_flag:
+							path: /content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[at0010, 'expire_flag']
+							type: string
